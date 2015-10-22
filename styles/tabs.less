@@ -8,55 +8,9 @@
   color: @text-color-subtle;
   height: @tab-height;
   line-height: @tab-height;
-  position: relative;
-  text-align: center;
 
   &.active {
-    background: @base-background-color;
-    color: @text-color;
-  }
-
-  .close-icon {
-    top: 0;
-    right: 0;
-    z-index: 2;
-    height: @tab-height;
-    line-height: @tab-height;
-    text-align: center;
-    transform: scale(0);
-    transition: transform .08s;
-    &:hover {
-      opacity: .7;
-    }
-    &:active {
-      opacity: .4;
-    }
-    &::before {
-      font-size: inherit;
-    }
-  }
-  &:hover .close-icon {
-    transform: scale(1);
-    transition-duration: .16s;
-  }
-}
-
-.tab.modified {
-  .close-icon {
-    color: @text-color-info;
-    border: none;
-  }
-  &:not(:hover) .close-icon {
-    right: 27;
-    top: 12;
-    width: initial;
-    height: @tab-height;
-    border: none;
-    border-radius: 0;
-    transform: scale(1);
-    &::before {
-      content: "\f052";
-      display: inline-block;
-    }
+    background: @tab-background-color-active;
+    color: @text-color-highlight;
   }
 }

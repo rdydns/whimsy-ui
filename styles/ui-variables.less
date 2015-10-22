@@ -1,7 +1,7 @@
 // Text
-@text-color                : fade(#fff, 80%);
-@text-color-subtle         : fade(#fff, 50%);
-@text-color-highlight      : #fff;
+@text-color                : fadeOut(#fff, 20%);
+@text-color-subtle         : fadeOut(@text-color, 50%);
+@text-color-highlight      : fadeIn(@text-color, 100%);
 @text-color-selected       : @text-color-highlight;
 
 @text-color-info           : #65aef7;
@@ -16,7 +16,7 @@
 @background-color-warning  : @text-color-warning;
 @background-color-error    : @text-color-error;
 
-@background-color-highlight: rgba(255, 255, 255, 0.10);
+@background-color-highlight: @text-color-subtle;
 @background-color-selected : @background-color-highlight;
 
 @app-background-color      : #323133;
@@ -56,14 +56,8 @@
 @tab-background-color-active     : @base-background-color;
 @tab-border-color                : @base-border-color;
 
-@tree-view-background-color      : @tool-panel-background-color;
+@tree-view-background-color      : #3e3d4f;
 @tree-view-border-color          : @tool-panel-border-color;
-
-@ui-site-color-1: @background-color-success; // green
-@ui-site-color-2: @background-color-info; // blue
-@ui-site-color-3: @background-color-warning; // orange
-@ui-site-color-4: #db2ff4; // purple
-@ui-site-color-5: #f5e11d; // yellow
 
 
 // Sizes
@@ -75,18 +69,10 @@
 @component-icon-padding : 4px;
 @component-icon-size    : 16px; // needs to stay 16px to look sharpest
 @component-line-height  : 24px;
-@component-border-radius: 4px;
+@component-border-radius: 2px;
 
-@tab-height             : 60px;
+@tab-height             : 48px;
 
 
 // Font
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
-
-
-// Custom
-@text-color-added:    @text-color-success;  // green
-@text-color-ignored:  @text-color-subtle;   // faded
-@text-color-modified: @text-color-warning;  // orange
-@text-color-removed:  @text-color-error;    // red
-@text-color-renamed:  @text-color-info;     // blue

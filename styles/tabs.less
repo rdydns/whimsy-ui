@@ -9,7 +9,7 @@
   border-color: @tab-bar-border-color;
   border-style: solid;
   border-width: 0 0 1px;
-  color: @text-color-subtle;
+  color: fadeOut(@text-color, 20%);
   height: @tab-height;
   line-height: @tab-height;
 
@@ -20,5 +20,4 @@
   }
 
   &.active:first-child { border-left: 0; }
-  &.active:last-child { border-right: 0; }
 }

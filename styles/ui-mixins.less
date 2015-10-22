@@ -2,13 +2,13 @@
 // http://lesscss.org/#-pattern-matching-and-guard-expressions
 
 .text(normal) {
-  font-weight: normal;
   color: @text-color;
+  font-weight: normal;
 }
 
 .text(subtle) {
-  font-weight: normal;
   color: @text-color-subtle;
+  font-weight: normal;
 }
 
 .text(highlight) {
@@ -24,7 +24,7 @@
 .text(error) { color: @text-color-error; }
 
 .focus() {
+  border-color: @background-color-highlight;
+  box-shadow: 0 0 0 1px @background-color-highlight;
   outline: none;
-  border-color: @base-accent-color;
-  box-shadow: 0 0 0 1px @base-accent-color;
 }

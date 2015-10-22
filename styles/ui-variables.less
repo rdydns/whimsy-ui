@@ -1,6 +1,6 @@
 // Text
 @text-color                : fadeOut(#fff, 20);
-@text-color-subtle         : #989899;
+@text-color-subtle         : #b3b0d6;
 @text-color-highlight      : #fff;
 @text-color-selected       : @text-color-highlight;
 
@@ -34,7 +34,7 @@
 @input-background-color          : @base-background-color;
 @input-border-color              : @base-border-color;
 
-@tool-panel-background-color     : #3e3d4f;
+@tool-panel-background-color     : @background-color-highlight;
 @tool-panel-border-color         : @base-border-color;
 
 @inset-panel-background-color    : @base-background-color;
@@ -46,18 +46,18 @@
 @overlay-background-color        : @base-background-color;
 @overlay-border-color            : @base-border-color;
 
-@button-background-color         : transparent;
-@button-background-color-hover   : @background-color-highlight;
-@button-background-color-selected: #222;
-@button-border-color             : @text-color;
+@button-background-color         : fadeOut(#aa7ff0, 40%);
+@button-background-color-hover   : #aa7ff0;
+@button-background-color-selected: @button-background-color-hover;
+@button-border-color             : @base-background-color;
 
 @tab-bar-background-color        : @base-border-color;
-@tab-bar-border-color            : #3e3d4f;
+@tab-bar-border-color            : @background-color-highlight;
 @tab-background-color            : @tab-bar-background-color;
 @tab-background-color-active     : @base-background-color;
 @tab-border-color                : @tab-bar-border-color;
 
-@tree-view-background-color      : #3e3d4f;
+@tree-view-background-color      : @background-color-highlight;
 @tree-view-border-color          : @inset-panel-background-color;
 
 @ui-site-color-1: @background-color-success;

@@ -1,7 +1,51 @@
-.btn {
-  border: 1px solid @button-border-color;
+.btn-mixin() {
+  .text(normal);
 
-  &:hover {
-    color: @text-color;
+  &.selected {
+    .text(highlight);
+  }
+
+  &:hover { color: @text-color-highlight; }
+
+  &:focus {
+    color: @text-color-highlight;
+    outline: none;
   }
 }
+
+.btn,
+.btn-primary {
+  .btn-mixin();
+  background-color: @button-background-color;
+
+  &:hover,
+  &:focus {
+    background-color: @button-background-color-hover;
+  }
+
+  &:active {
+    background-color: darken(@button-background-color, 10%);
+    color: darken(@button-background-color-selected, 40%);
+  }
+}
+
+.btn-color(@name, @color, @text) {
+  .btn-@{name} {
+    .btn-mixin();
+    background-color: fadeOut(@color, 20%);
+
+    &.selected,
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: @color !important;
+    }
+
+    &:active { color: darken(@text, 40%); }
+  }
+}
+
+.btn-color(info, @background-color-info, @text-color-info);
+.btn-color(success, @background-color-success, @text-color-success);
+.btn-color(warning, @background-color-warning, @text-color-warning);
+.btn-color(error, @background-color-error, @text-color-error);

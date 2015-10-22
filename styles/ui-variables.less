@@ -1,0 +1,92 @@
+// Text
+@text-color                : fade(#fff, 80%);
+@text-color-subtle         : fade(#fff, 50%);
+@text-color-highlight      : #fff;
+@text-color-selected       : @text-color-highlight;
+
+@text-color-info           : #65aef7;
+@text-color-success        : #43c1be;
+@text-color-warning        : #fcc22d;
+@text-color-error          : #ef6487;
+
+
+// Background
+@background-color-info     : @text-color-info;
+@background-color-success  : @text-color-success;
+@background-color-warning  : @text-color-warning;
+@background-color-error    : @text-color-error;
+
+@background-color-highlight: rgba(255, 255, 255, 0.10);
+@background-color-selected : @background-color-highlight;
+
+@app-background-color      : #323133;
+
+// Base
+@base-background-color           : @app-background-color;
+@base-border-color               : #222;
+
+
+// Components
+@pane-item-background-color      : @base-background-color;
+@pane-item-border-color          : @base-border-color;
+
+@input-background-color          : @base-background-color;
+@input-border-color              : @base-border-color;
+
+@tool-panel-background-color     : @base-background-color;
+@tool-panel-border-color         : @base-border-color;
+
+@inset-panel-background-color    : @base-background-color;
+@inset-panel-border-color        : @base-border-color;
+
+@panel-heading-background-color  : @base-background-color;
+@panel-heading-border-color      : @base-border-color;
+
+@overlay-background-color        : @base-background-color;
+@overlay-border-color            : @base-border-color;
+
+@button-background-color         : #222;
+@button-background-color-hover   : lighten(@button-background-color, 5%);
+@button-background-color-selected: @button-background-color-hover;
+@button-border-color             : @base-border-color;
+
+@tab-bar-background-color        : #222;
+@tab-bar-border-color            : @base-border-color;
+@tab-background-color            : @tab-bar-background-color;
+@tab-background-color-active     : @base-background-color;
+@tab-border-color                : @base-border-color;
+
+@tree-view-background-color      : @tool-panel-background-color;
+@tree-view-border-color          : @tool-panel-border-color;
+
+@ui-site-color-1: @background-color-success; // green
+@ui-site-color-2: @background-color-info; // blue
+@ui-site-color-3: @background-color-warning; // orange
+@ui-site-color-4: #db2ff4; // purple
+@ui-site-color-5: #f5e11d; // yellow
+
+
+// Sizes
+@font-size              : 12px;
+@input-font-size        : 14px;
+@disclosure-arrow-size  : 12px;
+
+@component-padding      : 12px;
+@component-icon-padding : 4px;
+@component-icon-size    : 16px; // needs to stay 16px to look sharpest
+@component-line-height  : 24px;
+@component-border-radius: 4px;
+
+@tab-height             : 60px;
+
+
+// Font
+@font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+
+
+// Custom
+@text-color-added:    @text-color-success;  // green
+@text-color-ignored:  @text-color-subtle;   // faded
+@text-color-modified: @text-color-warning;  // orange
+@text-color-removed:  @text-color-error;    // red
+@text-color-renamed:  @text-color-info;     // blue

@@ -1,16 +1,24 @@
 .tab-bar {
   background: @tab-bar-background-color;
+  border-bottom: 1px solid @tab-border-color;
   height: @tab-height;
 }
 
 .tab {
   background: @tab-background-color;
+  border-color: @tab-bar-border-color;
+  border-style: solid;
+  border-width: 0 0 1px;
   color: @text-color-subtle;
   height: @tab-height;
   line-height: @tab-height;
 
   &.active {
     background: @tab-background-color-active;
+    border-width: 0 1px;
     color: @text-color-highlight;
   }
+
+  &.active:first-child { border-left: 0; }
+  &.active:last-child { border-right: 0; }
 }

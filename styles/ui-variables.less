@@ -1,11 +1,11 @@
 // Text
-@text-color                : fadeOut(#fff, 20%);
-@text-color-subtle         : fadeOut(@text-color, 50%);
-@text-color-highlight      : fadeIn(@text-color, 100%);
+@text-color                : fadeOut(#fff, 20);
+@text-color-subtle         : #989899;
+@text-color-highlight      : #fff;
 @text-color-selected       : @text-color-highlight;
 
 @text-color-info           : #65aef7;
-@text-color-success        : #43c1be;
+@text-color-success        : #5ECA89;
 @text-color-warning        : #fcc22d;
 @text-color-error          : #ef6487;
 
@@ -16,31 +16,31 @@
 @background-color-warning  : @text-color-warning;
 @background-color-error    : @text-color-error;
 
-@background-color-highlight: @text-color-subtle;
+@background-color-highlight: #3e3d4f;
 @background-color-selected : @background-color-highlight;
 
-@app-background-color      : #323133;
+@app-background-color      : #313040;
 
 
 // Base
 @base-background-color           : @app-background-color;
-@base-border-color               : #222;
+@base-border-color               : darken(@base-background-color, 12%);
 
 
 // Components
-@pane-item-background-color      : transparent;
+@pane-item-background-color      : @base-background-color;
 @pane-item-border-color          : @base-border-color;
 
 @input-background-color          : @base-background-color;
 @input-border-color              : @base-border-color;
 
-@tool-panel-background-color     : #222;
+@tool-panel-background-color     : #3e3d4f;
 @tool-panel-border-color         : @base-border-color;
 
 @inset-panel-background-color    : @base-background-color;
 @inset-panel-border-color        : @base-border-color;
 
-@panel-heading-background-color  : transparent;
+@panel-heading-background-color  : @base-background-color;
 @panel-heading-border-color      : @base-border-color;
 
 @overlay-background-color        : @base-background-color;
@@ -51,14 +51,14 @@
 @button-background-color-selected: #222;
 @button-border-color             : @text-color;
 
-@tab-bar-background-color        : #222;
-@tab-bar-border-color            : @base-border-color;
+@tab-bar-background-color        : @base-border-color;
+@tab-bar-border-color            : #3e3d4f;
 @tab-background-color            : @tab-bar-background-color;
 @tab-background-color-active     : @base-background-color;
-@tab-border-color                : @base-border-color;
+@tab-border-color                : @tab-bar-border-color;
 
 @tree-view-background-color      : #3e3d4f;
-@tree-view-border-color          : @tool-panel-border-color;
+@tree-view-border-color          : @inset-panel-background-color;
 
 @ui-site-color-1: @background-color-success;
 @ui-site-color-2: @background-color-info;
@@ -83,10 +83,3 @@
 
 // Font
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
-
-
-// Custom
-@scrollbar-background-color: #3e3d4f;
-@scrollbar-color: #313040;
-@scrollbar-background-color-editor: #3e3d4f;
-@scrollbar-color-editor: #313040;

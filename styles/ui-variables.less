@@ -8,24 +8,23 @@
 @text-color-success        : #5ECA89;
 @text-color-warning        : #fcc22d;
 @text-color-error          : #ef6487;
-
+@text-color-accent         : #aa7ff0;
 
 // Background
 @background-color-info     : @text-color-info;
 @background-color-success  : @text-color-success;
 @background-color-warning  : @text-color-warning;
 @background-color-error    : @text-color-error;
+@background-color-accent   : @text-color-accent;
 
 @background-color-highlight: #3e3d4f;
 @background-color-selected : @background-color-highlight;
 
 @app-background-color      : #313040;
 
-
 // Base
 @base-background-color           : @app-background-color;
 @base-border-color               : darken(@base-background-color, 12%);
-
 
 // Components
 @pane-item-background-color      : @base-background-color;
@@ -34,20 +33,20 @@
 @input-background-color          : @base-background-color;
 @input-border-color              : @base-border-color;
 
-@tool-panel-background-color     : @background-color-highlight;
+@tool-panel-background-color     : transparent;
 @tool-panel-border-color         : @base-border-color;
 
-@inset-panel-background-color    : @base-background-color;
+@inset-panel-background-color    : transparent;
 @inset-panel-border-color        : @base-border-color;
 
-@panel-heading-background-color  : @base-background-color;
+@panel-heading-background-color  : red;
 @panel-heading-border-color      : @base-border-color;
 
-@overlay-background-color        : @base-background-color;
-@overlay-border-color            : @base-border-color;
+@overlay-background-color        : @base-border-color;
+@overlay-border-color            : @text-color-subtle;
 
-@button-background-color         : fadeOut(#aa7ff0, 40%);
-@button-background-color-hover   : #aa7ff0;
+@button-background-color         : fadeOut(@background-color-accent, 40%);
+@button-background-color-hover   : @background-color-accent;
 @button-background-color-selected: @button-background-color-hover;
 @button-border-color             : @base-background-color;
 
@@ -58,14 +57,13 @@
 @tab-border-color                : @tab-bar-border-color;
 
 @tree-view-background-color      : @background-color-highlight;
-@tree-view-border-color          : @inset-panel-background-color;
+@tree-view-border-color          : @tree-view-background-color;
 
 @ui-site-color-1: @background-color-success;
 @ui-site-color-2: @background-color-info;
 @ui-site-color-3: @background-color-warning;
 @ui-site-color-4: @background-color-error;
-@ui-site-color-5: @background-color-highlight;
-
+@ui-site-color-5: @background-color-accent;
 
 // Sizes
 @font-size              : 12px;
@@ -79,7 +77,6 @@
 @component-border-radius: 2px;
 
 @tab-height             : 48px;
-
 
 // Font
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;

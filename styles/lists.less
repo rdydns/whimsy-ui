@@ -41,7 +41,29 @@
     .text(selected);
   }
 
-  // .no-icon {
-  //   padding-left: calc(@ui-padding-icon ~"+" @component-icon-size);
-  // }
+  .no-icon {
+    padding-left: @component-icon-size;
+  }
+}
+
+.list-tree .selected:before {
+  background-color: @base-background-color;
+}
+
+.select-list.popover-list {
+  background-color: @overlay-background-color;
+  padding: @component-padding;
+  border-radius: @component-border-radius;
+
+  atom-text-editor[mini] {
+    margin-bottom: @component-padding;
+  }
+
+  ol.list-group {
+    margin-top: @component-padding;
+  }
+
+  .list-group li {
+    padding-left: @component-padding;
+  }
 }

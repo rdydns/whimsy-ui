@@ -32,7 +32,7 @@
 .btn-color(@name, @color, @text) {
   .btn-@{name} {
     .btn-mixin();
-    background-color: fadeOut(@color, 20%);
+    background-color: desaturate(@color, 20%);
 
     &.selected,
     &:hover,

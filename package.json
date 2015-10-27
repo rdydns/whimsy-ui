@@ -12,7 +12,7 @@
   "activationCommands": {
     "atom-workspace": "whimsy-ui:toggle"
   },
-  "repository": "https://github.com/atom/whimsy-ui",
+  "repository": "https://github.com/rdydns/whimsy-ui",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

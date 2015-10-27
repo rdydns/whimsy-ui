@@ -29,25 +29,23 @@ pre {
 
 code {
   .text(highlight);
-  background: fadeOut(@background-color-accent, 40%);
+  background: @background-color-highlight;
   border-radius: @component-border-radius;
 }
 
 .selected { .text(highlight); }
 
-.text-smaller { font-size: 80%; }
+.text-smaller { font-size: 0.9em; }
 
 .text-subtle { .text(subtle); }
+
 .text-highlight { .text(highlight); }
+
+.text-error { .text(error); }
 
 .text-info {
   .text(info);
   &:hover { color: @text-color-info; }
-}
-
-.text-success {
-  .text(success);
-  &:hover { color: @text-color-success; }
 }
 
 .text-warning {
@@ -55,13 +53,17 @@ code {
   &:hover { color: @text-color-warning; }
 }
 
-.text-error { .text(error); }
+.text-success {
+  .text(success);
+  &:hover { color: @text-color-success; }
+}
 
 .highlight-mixin {
+  padding: 1px 4px;
+  font-weight: bold;
+  text-shadow: none;
   border-radius: @component-border-radius;
   color: @text-color-highlight;
-  padding: 1px 4px;
-  text-shadow: none;
 }
 
 .highlight {
@@ -69,18 +71,17 @@ code {
   background-color: @background-color-highlight;
 }
 
-.highlight-color(@name, @color) {
+.highlight-color(@name, @color, @text-color) {
   .highlight-@{name} {
     .highlight-mixin();
-    background-color: fadeOut(@color, 20%);
+    background-color: fadeout(@color, 50%);
   }
 }
-
-.highlight-color(info, @background-color-info);
-.highlight-color(warning, @background-color-warning);
-.highlight-color(error, @background-color-error);
-.highlight-color(success, @background-color-success);
+.highlight-color(info, @background-color-info, @text-color-info);
+.highlight-color(warning, @background-color-warning, @text-color-warning);
+.highlight-color(error, @background-color-error, @text-color-error);
+.highlight-color(success, @background-color-success, @text-color-success);
 
 .results-view .path-details.list-item {
-  color: darken(@text-color-highlight, 20%);
+  color: darken(@text-color-highlight, 18%);
 }

@@ -30,11 +30,11 @@
     }
   }
 
-  .generate-list-item-status-color(@text-color-success, added);
-  .generate-list-item-status-color(@text-color-subtle, ignored);
-  .generate-list-item-status-color(@text-color-warning, modified);
-  .generate-list-item-status-color(@text-color-error, removed);
-  .generate-list-item-status-color(@text-color-info, renamed);
+  .generate-list-item-status-color(@text-color-added, added);
+  .generate-list-item-status-color(@text-color-ignored, ignored);
+  .generate-list-item-status-color(@text-color-modified, modified);
+  .generate-list-item-status-color(@text-color-removed, removed);
+  .generate-list-item-status-color(@text-color-renamed, renamed);
 
   li:not(.list-nested-item).selected,
   li.list-nested-item.selected > .list-item {
@@ -42,7 +42,7 @@
   }
 
   .no-icon {
-    padding-left: @component-icon-size;
+    padding-left: calc(@ui-padding-icon ~"+" @component-icon-size);
   }
 }
 
@@ -50,24 +50,93 @@
   text-align: center;
 }
 
-.list-tree .selected:before {
-  background-color: @base-background-color;
+.select-list ol.list-group,
+&.select-list ol.list-group {
+  li.two-lines {
+    .secondary-line {
+      color: @text-color-subtle;
+    }
+    &.selected .secondary-line {
+      color: fade(@text-color-highlight, 50%);
+      text-shadow: none;
+    }
+  }
+
+  // We want to highlight the background of the list items because we dont
+  // know their size.
+  li.selected {
+    background-color: @background-color-selected;
+    &:before{ display: none; }
+  }
+
+  &.mark-active {
+    @active-icon-size: 14px;
+
+    // pad in front of the text where the icon would be We'll pad the non-
+    // active items with a 'fake' icon so other classes can pad the item
+    // without worrying about the icon padding.
+    li:before {
+      content: '';
+      background-color: transparent;
+      position: static;
+      display: inline-block;
+      left: auto; right: auto;
+      height: @active-icon-size;
+      width: @active-icon-size;
+    }
+    > li:not(.active):before {
+      margin-right: @ui-padding-icon;
+    }
+    li.active {
+      .octicon(check, @active-icon-size);
+      &:before {
+        margin-right: @ui-padding-icon;
+        color: @text-color-success;
+      }
+    }
+  }
 }
 
 .select-list.popover-list {
+  @popover-list-padding: @ui-padding/4;
   background-color: @overlay-background-color;
-  padding: @component-padding;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.3);
+  padding: @popover-list-padding;
   border-radius: @component-border-radius;
 
   atom-text-editor[mini] {
-    margin-bottom: @component-padding;
+    margin-bottom: @popover-list-padding;
   }
 
   ol.list-group {
-    margin-top: @component-padding;
+    margin-top: @popover-list-padding;
   }
 
   .list-group li {
-    padding-left: @component-padding;
+    padding-left: @popover-list-padding;
   }
+}
+
+.ui-sortable {
+  li {
+    line-height: 2.5;
+  }
+
+  // For sortable lists in the settings view
+  li.ui-sortable-placeholder {
+    visibility: visible !important;
+    background-color: darken(@pane-item-background-color, 10%);
+  }
+}
+
+li.ui-draggable-dragging,
+li.ui-sortable-helper {
+  line-height: @ui-line-height;
+  height: @ui-line-height;
+  border: 0;
+  border-radius: 0;
+  list-style: none;
+  padding: 0 @ui-padding;
+  background: @background-color-highlight;
+  box-shadow: 0 0 1px @base-border-color;
 }

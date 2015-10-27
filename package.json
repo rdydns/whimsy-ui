@@ -1,7 +1,7 @@
 {
   "name": "whimsy-ui",
   "theme": "ui",
-  "main": "./lib/whimsy-ui",
+  "main": "./lib/main",
   "version": "1.0.0",
   "description": "Atom theme inspired by Carbonmade",
   "keywords": [
@@ -17,6 +17,7 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
+  "devDependencies": {
+    "coffeelint": "^1.9.7"
   }
 }

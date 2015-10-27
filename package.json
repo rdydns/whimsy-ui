@@ -2,11 +2,12 @@
   "name": "whimsy-ui",
   "theme": "ui",
   "main": "./lib/whimsy-ui",
-  "version": "0.0.0",
-  "description": "A theme for Atom inspired by Carbonmade",
+  "version": "1.0.0",
+  "description": "Atom theme inspired by Carbonmade",
   "keywords": [
-    "ui",
-    "theme"
+    "dark",
+    "purple",
+    "whimsy"
   ],
   "activationCommands": {
     "atom-workspace": "whimsy-ui:toggle"

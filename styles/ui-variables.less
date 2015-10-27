@@ -32,40 +32,62 @@
 
 // Base
 @base-background-color: @app-background-color;
-@base-border-color    : darken(@syntax-bg, 12%);;
+@base-border-color    : darken(@syntax-bg, 12%);
+
+@base-accent-color: #aa7ff0;
 
 // Components
-@pane-item-background-color      : @base-background-color;
-@pane-item-border-color          : @base-border-color;
+@pane-item-background-color       : @base-background-color;
+@pane-item-border-color           : @base-border-color;
 
-@input-background-color          : @background-color-highlight;
-@input-border-color              : @base-border-color;
+@input-background-color           : @background-color-highlight;
+@input-border-color               : @base-border-color;
 
-@tool-panel-background-color     : transparent;
-@tool-panel-border-color         : @base-border-color;
+@input-background-color-focus     : fadein(@input-background-color, 6%);
+@input-selection-color            : darken(@background-color-selected, 6%);
+@input-selection-color-focus      : @background-color-selected;
 
-@inset-panel-background-color    : transparent;
-@inset-panel-border-color        : fadeout(@base-border-color, 15%);
+@tool-panel-background-color      : transparent;
+@tool-panel-border-color          : @base-border-color;
 
-@panel-heading-background-color  : @base-background-color;
-@panel-heading-border-color      : @base-border-color;
+@inset-panel-background-color     : transparent;
+@inset-panel-border-color         : fadeout(@base-border-color, 15%);
 
-@overlay-background-color        : @base-border-color;
-@overlay-border-color            : @text-color-subtle;
+@panel-heading-background-color   : @base-background-color;
+@panel-heading-border-color       : @base-border-color;
 
-@button-background-color         : fadeOut(@base-accent-color, 40%);
-@button-background-color-hover   : @base-accent-color;
-@button-background-color-selected: @button-background-color-hover;
-@button-border-color             : @base-background-color;
+@overlay-background-color         : @base-border-color;
+@overlay-border-color             : @text-color-subtle;
 
-@tab-bar-background-color        : @base-border-color;
-@tab-bar-border-color            : @background-color-highlight;
-@tab-background-color            : @tab-bar-background-color;
-@tab-background-color-active     : @base-background-color;
-@tab-border-color                : @tab-bar-border-color;
+@button-background-color          : fadeOut(@base-accent-color, 40%);
+@button-background-color-hover    : @base-accent-color;
+@button-background-color-selected : @button-background-color-hover;
+@button-border-color              : @base-background-color;
 
-@tree-view-background-color      : @background-color-highlight;
-@tree-view-border-color          : @tree-view-background-color;
+@tab-bar-background-color         : @base-border-color;
+@tab-bar-border-color             : @background-color-highlight;
+@tab-background-color             : @tab-bar-background-color;
+@tab-background-color-active      : @base-background-color;
+@tab-border-color                 : @tab-bar-border-color;
+
+@tab-text-color                   : @text-color;
+@tab-text-color-active            : @text-color-highlight;
+
+@tree-view-background-color       : @background-color-highlight;
+@tree-view-border-color           : @tree-view-background-color;
+
+@scrollbar-color                  : @base-accent-color;
+@scrollbar-background-color       : @base-border-color;
+@scrollbar-color-editor           : @scrollbar-color;
+@scrollbar-background-color-editor: @scrollbar-background-color;
+
+@tooltip-background-color         : @base-accent-color;
+@tooltip-text-color               : red;
+@tooltip-text-key-color           : @tooltip-background-color;
+@tooltip-background-key-color     : @tooltip-text-color;
+
+@key-binding-border-color         : hsla(0, 0%, 100%, .1);
+@key-binding-background-color     : hsla(0, 0%, 100%, .1);
 
 @ui-site-color-1 : @background-color-info;
 @ui-site-color-2 : @background-color-success;
@@ -87,45 +109,19 @@
 
 @tab-height             : 48px;
 
+@ui-size                : 1em;
+@ui-padding             : @ui-size;
+@ui-padding-pane        : @ui-size/2;
+@ui-padding-icon        : @ui-padding/3.3;
+
 // Font
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
 
-// Custom
-@ui-theme-name: whimsy-ui;
-
-@ui-size        : 1em;
-@ui-padding     : @ui-size;
-@ui-padding-pane: @ui-size/2;
-@ui-padding-icon: @ui-padding/3.3;
+// Misc
+@theme-name: whimsy-ui;
 
 @level-1-color: lighten(@base-background-color, 6%);
 @level-3-color: darken(@base-background-color, 3%);
-
-@base-accent-color: #aa7ff0;
-
-@badge-background-color           : lighten(@background-color-highlight, 6%);
-
-@checkbox-background-color        : fade(@base-accent-color, 33%);
-
-@input-background-color-focus     : fadein(@input-background-color, 6%);
-@input-selection-color            : darken(@background-color-selected, 6%);
-@input-selection-color-focus      : @background-color-selected;
-
-@key-binding-border-color         : hsla(0, 0%, 100%, .1);
-@key-binding-background-color     : hsla(0, 0%, 100%, .1);
-
-@scrollbar-color                  : @level-1-color;
-@scrollbar-background-color       : @level-3-color; // replaced `transparent` with a solid color to test https://github.com/atom/one-light-ui/issues/4
-@scrollbar-color-editor           : red;
-@scrollbar-background-color-editor: @purple;
-
-@tab-text-color                   : @text-color;
-@tab-text-color-active            : @text-color-highlight;
-
-@tooltip-background-color         : @base-accent-color;
-@tooltip-text-color               : rd;
-@tooltip-text-key-color           : @tooltip-background-color;
-@tooltip-background-key-color     : @tooltip-text-color;
 
 // Debug
 // html:before {

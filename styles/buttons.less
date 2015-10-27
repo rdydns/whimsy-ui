@@ -12,18 +12,22 @@
     //.focus(); // disabled for now, since :focus styles stay even after releasing mouse.
     outline: none;
   }
+
   &:focus,
   &:hover {
     color: @text-color-highlight;
     background-image: linear-gradient(lighten(@hover-color, 2%), @hover-color);
   }
+
   &:active {
     background: darken(@color, 4%);
     box-shadow: none;
   }
+
   &.selected {
     background: @selected-color;
   }
+
   &.selected:focus,
   &.selected:hover {
     background: lighten(@selected-color, 2%);
@@ -41,10 +45,6 @@
   color: @_text-color;
   text-shadow: 0 1px 0 hsla(0,0%,0%,.2);
 
-  & when (@ui-lightness > 50%) {
-    border-color: transparent; // hide border on light backgrounds
-  }
-
   &:hover,
   &:focus {
     color: @_text-color;
@@ -59,7 +59,7 @@
   height: initial;
   padding: @btn-padding;
   font-size: @ui-size;
-  line-height: @ui-line-height;
+  line-height: @line-height;
 }
 
 .btn,
@@ -90,21 +90,21 @@
 .btn.btn-xs,
 .btn-group-xs > .btn {
   font-size: @ui-size*.8;
-  line-height: @ui-line-height;
+  line-height: @line-height;
   padding: @btn-padding;
 }
 
 .btn.btn-sm,
 .btn-group-sm > .btn {
   font-size: @ui-size*.9;
-  line-height: @ui-line-height;
+  line-height: @line-height;
   padding: @btn-padding;
 }
 
 .btn.btn-lg,
 .btn-group-lg > .btn {
   font-size: @ui-size * 1.5;
-  line-height: @ui-line-height;
+  line-height: @line-height;
   padding: @btn-padding;
 }
 
@@ -122,25 +122,6 @@
     border-right: @btn-border;
   }
 
-  // hide border on light backgrounds
-  & when (@ui-lightness > 50%) {
-    &.btn-primary:first-child,
-    &.btn-info:first-child,
-    &.btn-success:first-child,
-    &.btn-warning:first-child,
-    &.btn-error:first-child {
-      border-left-color: transparent;
-    }
-
-    &.btn-primary:last-child,
-    &.btn-info:last-child,
-    &.btn-success:last-child,
-    &.btn-warning:last-child,
-    &.btn-error:last-child {
-      border-right-color: transparent;
-    }
-  }
-
   &.btn:focus {
     z-index: 1;
   }
@@ -148,10 +129,11 @@
   &.selected,
   &.selected:first-child,
   &.selected:last-child {
-    color: @button-text-color-selected;
-    border: 1px solid @button-border-color-selected;
+    color: @text-color-highlight;
+    border: 1px solid @button-border-color;
   }
+
   &.selected + .btn {
-    border-left-color: @button-border-color-selected;
+    border-left-color: @button-border-color;
   }
 }

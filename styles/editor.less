@@ -5,8 +5,8 @@ atom-text-editor[mini] {
 }
 
 atom-text-editor[mini] {
-  font-size: @ui-input-size;
-  line-height: @ui-line-height;
+  font-size: @input-font-size;
+  line-height: 2;
   max-height: none;
   padding-left: @ui-padding/3;
   border-radius: @component-border-radius;
@@ -19,9 +19,11 @@ atom-text-editor[mini] {
     .placeholder-text {
       color: @text-color-subtle;
     }
+
     .selection .region {
       background-color: @input-selection-color;
     }
+
     .cursor {
       border-color: @base-accent-color;
       border-width: 2px;

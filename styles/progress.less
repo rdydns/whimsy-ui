@@ -28,7 +28,7 @@
 }
 
 @progress-height: 8px;
-@progress-buffer-color: fade(@progress-background-color, 20%);
+@progress-buffer-color: fade(@base-accent-color, 20%);
 
 progress {
   -webkit-appearance: none;
@@ -43,7 +43,7 @@ progress {
 
   &::-webkit-progress-value {
     border-radius: @component-border-radius;
-    background-color: @progress-background-color;
+    background-color: @base-accent-color;
   }
 
   // Is buffering (when no value is set)

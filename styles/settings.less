@@ -15,8 +15,8 @@
 		min-width: @ui-size * 15;
 		max-width: @ui-size * 20;
 		border-width: 0 1px 0 0;
-		border-image: linear-gradient(@level-2-color 10px, @base-border-color 200px) 0 1 0 0 stretch;
-		background: @level-2-color;
+		border-image: linear-gradient(@base-background-color 10px, @base-border-color 200px) 0 1 0 0 stretch;
+		background: @base-background-color;
 
 		.btn {
 			white-space: initial;
@@ -32,12 +32,12 @@
 	.nav {
 		& > li > a {
 			padding: @ui-padding/2 @ui-padding;
-			line-height: @ui-line-height;
+			line-height: @line-height;
 		}
 	}
 
 	& > .panels {
-		background-color: @level-2-color;
+		background-color: @base-background-color;
 	}
 
 	.section-container {
@@ -89,7 +89,7 @@
 
 	.form-control {
 		font-size: @ui-size*1.25;
-		height: @ui-line-height;
+		height: @line-height;
 		padding-top: 0;
 		padding-bottom: 0;
 	}
@@ -99,6 +99,6 @@
 	}
 
 	.search-container .btn {
-		font-size: @ui-input-size;
+		font-size: @input-font-size;
 	}
 }

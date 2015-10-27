@@ -1,44 +1,7 @@
-// Whimsy Variables
 @import "syntax-variables";
-.ui-syntax-color() { @syntax-background-color: hsl(220,24%,20%); } .ui-syntax-color(); // fallback color
-@ui-syntax-color: @syntax-background-color;
 
-// Color guards
-@ui-s-h: hue(@ui-syntax-color);
-@ui-s-s: saturation(@ui-syntax-color);
-@ui-s-l: lightness(@ui-syntax-color);
-@ui-inv: 10%; // inverse lightness if below
-
-.ui-hue() when (@ui-s-s = 0) { @ui-hue: 220; } // Use blue hue when no saturation
-.ui-hue() when (@ui-s-s > 0) { @ui-hue: @ui-s-h; }
-.ui-hue();
-
-.ui-saturation() when (@ui-s-h <=  80) { @ui-saturation: min(@ui-s-s,  5%); } // minimize saturation for brown
-.ui-saturation() when (@ui-s-h >   80) and (@ui-s-h <  160) { @ui-saturation: min(@ui-s-s, 12%); } // reduce saturation for green
-.ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l <  @ui-inv) { @ui-saturation: min(@ui-s-s, 48%); } // limit max saturaiotn for very dark backgrounds
-.ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l >= @ui-inv) { @ui-saturation: @ui-s-s; }
-.ui-saturation();
-
-.ui-lightness() when (@ui-s-l <  @ui-inv) {
-  @ui-lightness: @ui-s-l + 8%; // increase lightness when too dark
-  @ui-lightness-border: @ui-lightness*.3;
-}
-
-.ui-lightness() when (@ui-s-l >= @ui-inv) {
-  @ui-lightness: min(@ui-s-l, 20%); // limit max lightness (for light syntax themes)
-  @ui-lightness-border: @ui-lightness*.6;
-}
-
-.ui-lightness();
-
-// Main
-@ui-fg    : @syntax-fg;
-@ui-bg    : @syntax-bg;
-@ui-border: darken(@ui-bg, 12%);
-
-// Atom Variables
 // Text
-@text-color          : @ui-fg;
+@text-color          : @syntax-fg;
 @text-color-subtle   : @subtle;
 @text-color-highlight: #fff;
 @text-color-selected : @text-color-highlight;
@@ -47,6 +10,14 @@
 @text-color-success  : @green;
 @text-color-warning  : @orange;
 @text-color-error    : @red;
+
+@text-color-faded    : fade(@text-color, 20%);
+
+@text-color-added    : @text-color-success; // green
+@text-color-ignored  : @text-color-subtle; // faded
+@text-color-modified : @text-color-warning; // orange
+@text-color-removed  : @text-color-error; // red
+@text-color-renamed  : @text-color-info; // blue
 
 // Background
 @background-color-info     : @text-color-info;
@@ -57,11 +28,11 @@
 @background-color-highlight: #3E3D4F;
 @background-color-selected : @background-color-highlight;
 
-@app-background-color      : @ui-bg;
+@app-background-color      : @syntax-bg;
 
 // Base
 @base-background-color: @app-background-color;
-@base-border-color    : @ui-border;
+@base-border-color    : darken(@syntax-bg, 12%);;
 
 // Components
 @pane-item-background-color      : @base-background-color;
@@ -96,18 +67,19 @@
 @tree-view-background-color      : @background-color-highlight;
 @tree-view-border-color          : @tree-view-background-color;
 
-@ui-site-color-1                 : @background-color-info;
-@ui-site-color-2                 : @background-color-success;
-@ui-site-color-3                 : @background-color-warning;
-@ui-site-color-4                 : @background-color-error;
-@ui-site-color-5                 : @base-accent-color;
+@ui-site-color-1 : @background-color-info;
+@ui-site-color-2 : @background-color-success;
+@ui-site-color-3 : @background-color-warning;
+@ui-site-color-4 : @background-color-error;
+@ui-site-color-5 : @base-accent-color;
 
 // Sizes
 @font-size              : 12px;
 @input-font-size        : 12px;
+@line-height            : @font-size * 2;
 @disclosure-arrow-size  : 12px;
 
-@component-padding      : 12px;
+@component-padding      : 8px;
 @component-icon-padding : 4px;
 @component-icon-size    : 16px; // needs to stay 16px to look sharpest
 @component-line-height  : 24px;
@@ -121,24 +93,17 @@
 // Custom
 @ui-theme-name: whimsy-ui;
 
-@text-color-faded: fade(@text-color, 20%);
-
-@text-color-added   : @text-color-success; // green
-@text-color-ignored : @text-color-subtle; // faded
-@text-color-modified: @text-color-warning; // orange
-@text-color-removed : @text-color-error; // red
-@text-color-renamed : @text-color-info; // blue
+@ui-size        : 1em;
+@ui-padding     : @ui-size;
+@ui-padding-pane: @ui-size/2;
+@ui-padding-icon: @ui-padding/3.3;
 
 @level-1-color: lighten(@base-background-color, 6%);
-@level-2-color: @base-background-color;
 @level-3-color: darken(@base-background-color, 3%);
 
 @base-accent-color: #aa7ff0;
 
 @badge-background-color           : lighten(@background-color-highlight, 6%);
-
-@button-text-color-selected       : contrast(@button-background-color-selected, white, hsl(@ui-hue,100%,10%), 40% );
-@button-border-color-selected     : @base-border-color;
 
 @checkbox-background-color        : fade(@base-accent-color, 33%);
 
@@ -146,41 +111,21 @@
 @input-selection-color            : darken(@background-color-selected, 6%);
 @input-selection-color-focus      : @background-color-selected;
 
-@key-binding-border-color         : hsla(0,0%,100%,.1);
-@key-binding-background-color     : hsla(0,0%,100%,.1);
-
-@overlay-backdrop-color           : hsla(@ui-hue,@ui-saturation,5%,.5);
-
-@progress-background-color        : @base-accent-color;
+@key-binding-border-color         : hsla(0, 0%, 100%, .1);
+@key-binding-background-color     : hsla(0, 0%, 100%, .1);
 
 @scrollbar-color                  : @level-1-color;
 @scrollbar-background-color       : @level-3-color; // replaced `transparent` with a solid color to test https://github.com/atom/one-light-ui/issues/4
-@scrollbar-color-editor           : contrast(@ui-syntax-color, darken(@ui-syntax-color, 18%), lighten(@ui-syntax-color, 9%) );
-@scrollbar-background-color-editor: @ui-syntax-color;
+@scrollbar-color-editor           : red;
+@scrollbar-background-color-editor: @purple;
 
-@tab-text-color                   : @text-color-subtle;
+@tab-text-color                   : @text-color;
 @tab-text-color-active            : @text-color-highlight;
-@tab-text-color-editor            : contrast(@ui-syntax-color, darken(@ui-syntax-color, 50%), @text-color-highlight );
-@tab-background-color-editor      : @ui-syntax-color;
 
 @tooltip-background-color         : @base-accent-color;
-@tooltip-text-color               : contrast(@tooltip-background-color, white, hsl(@ui-hue,100%,10%), 40% );
+@tooltip-text-color               : rd;
 @tooltip-text-key-color           : @tooltip-background-color;
 @tooltip-background-key-color     : @tooltip-text-color;
-
-@ui-size        : 1em;
-@ui-input-size  : @ui-size*1.15;
-@ui-padding     : @ui-size*1.5;
-@ui-padding-pane: @ui-size*.5;
-@ui-padding-icon: @ui-padding/3.3;
-@ui-line-height : @ui-size*2;
-@ui-tab-height  : @ui-padding*3;
-
-// Packages
-@settings-list-background-color  : darken(@level-2-color, 1.5%);
-@theme-config-box-shadow         : inset 0 0 3px hsla(0, 0%, 100%, .4), 0 1px 3px hsla(0, 0%, 0%, .2);
-@theme-config-box-shadow-selected: inset 0 1px 3px hsla(0, 0%, 0%, .1);
-@theme-config-border-selected    : hsla(0, 0%, 100%, .75);
 
 // Debug
 // html:before {

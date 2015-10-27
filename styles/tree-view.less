@@ -1,4 +1,4 @@
-@tree-view-height: @ui-line-height;
+@tree-view-height: @line-height;
 
 .tree-view {
   font-size: @ui-size;
@@ -10,12 +10,7 @@
     }
 
     &:before {
-      height: @ui-tab-height;
       background-clip: padding-box;
-    }
-
-    & > .header .name {
-      line-height: @ui-tab-height;
     }
   }
 
@@ -67,7 +62,6 @@
   z-index: 1;
   top: @ui-padding-pane;
   left: 0;
-  height: @ui-tab-height;
   bottom: 0;
   width: 2px;
   background: @base-accent-color;

@@ -19,6 +19,7 @@ html { font-size: @font-size; }
 
   atom-workspace {
     padding-right: 0;
+
     atom-panel-container.left:empty {
       padding-left: 0;
     }
@@ -34,11 +35,13 @@ html { font-size: @font-size; }
         border: none;
       }
     }
+
     // make resize-handles fill the space
     atom-pane-axis.horizontal > atom-pane-resize-handle {
       width: 8px;
       margin-left: -4px;
     }
+
     atom-pane-axis.vertical > atom-pane-resize-handle {
       height: 8px;
       margin-top: -4px;
@@ -49,6 +52,7 @@ html { font-size: @font-size; }
     .tab {
       border-radius: 0;
     }
+
     .tab::before {
       border-radius: 0;
       top: 0;
@@ -62,19 +66,21 @@ html { font-size: @font-size; }
     .tab:first-of-type::before {
       left: 0;
     }
+
     .tab::after {
       border-top: none;
       border-radius: 0;
     }
+
     .tab:first-of-type::after {
       border-left: none;
     }
+
     .tab:last-of-type::after {
       border-right: none;
       box-shadow: inset 0 1px 1px hsla(0,0%,100,.06), 1px 0 0 @base-border-color;
     }
   }
-
 
   // tree-view
   .tree-view-resizer[data-show-on-right-side="true"] {
@@ -87,8 +93,9 @@ html { font-size: @font-size; }
 
   .tree-view .project-root.project-root {
     padding-top: 0;
+
     &:before {
-      height: @ui-tab-height;
+      height: @tab-height;
     }
   }
   .theme-one-dark-ui .tree-view .project-root.project-root::before {

@@ -24,7 +24,7 @@ atom-panel.modal {
 
     li {
       padding: @modal-padding;
-      line-height: @ui-line-height;
+      line-height: @line-height;
       border-bottom: 1px solid @overlay-border-color;
 
       &:last-of-type {
@@ -55,7 +55,7 @@ atom-panel.modal {
   .select-list .key-binding {
     margin-top: -1px;
     margin-left: @ui-padding/2;
-    margin-right: calc( -@ui-padding/3 ~"+" 1px);
+    margin-right: calc( -@ui-padding/3 ~'+' 1px);
   }
 
   .select-list .primary-line {
@@ -67,7 +67,7 @@ atom-panel.modal {
   }
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -82,14 +82,14 @@ atom-panel.modal {
 
   // TODO: Add extra wrapper to translate individually or easier positioning
   &:after {
-    content: "";
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: -1;
-    background: @overlay-backdrop-color;
+    background: @overlay-background-color;
     backface-visibility: hidden; // fixes scrollbar on retina screens
     -webkit-animation: overlay-fade .1s cubic-bezier(0.215, 0.61, 0.355, 1);
   }

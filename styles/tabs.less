@@ -1,16 +1,11 @@
-@tab-border-size: 1px;
-@tab-border: @tab-border-size solid @tab-border-color;
-@tab-max-width: @ui-size*22;
-@tab-min-width: @ui-size*7; // icon + 5 characters
-@tab-padding: @ui-padding/1.5;
-@modified-icon-width: @ui-size;
+@tab-padding: @ui-padding;
 
 .tab-bar {
-  height: @tab-height;
   background: @tab-bar-background-color;
+  border-radius: 0;
+  height: @tab-height*2;
   overflow-x: auto;
   overflow-y: hidden;
-  border-radius: 0;
 
   &::-webkit-scrollbar {
     display: none;
@@ -18,69 +13,68 @@
 
   .tab {
     position: relative;
-    top: 0;
-    max-width: @tab-max-width;
-    min-width: @tab-min-width;
+    top: @tab-height/2;
     height: @tab-height;
     font-size: inherit;
     color: @tab-text-color;
     line-height: @tab-height;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 @tab-height/4;
     background-clip: content-box;
+    border: 1px solid @tab-border-color;
+    border-radius: @component-border-radius;
 
     &.active {
-      border-radius: @component-border-radius*1.75 @component-border-radius*1.75 0 0;
       background-color: @tab-background-color-active;
+      color: @tab-text-color-active;
     }
 
-    &::after {
-      content: "";
-      z-index: 1;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: inherit;
-      border-radius: @component-border-radius @component-border-radius 0 0;
-      border: @tab-border;
-      border-bottom-color: @tab-background-color-active;
-      background-image: linear-gradient( hsla(0,0%,100,.02), hsla(0,0%,100,0) );
-      background-clip: content-box;
-      transition: opacity .16s;
-      opacity: 0;
+    &.modified {
+      .close-icon {
+        color: @text-color-info;
+        border: 0;
+      }
+
+      &:not(:hover) .close-icon {
+        right: 0;
+        top: 0;
+        width: initial;
+        height: @tab-height;
+        border: 0;
+        transform: scale(1);
+
+        &::before {
+          content: '\f052';
+          display: inline-block;
+        }
+      }
     }
 
-    &.active::after {
-      opacity: 1;
-      transition: none;
+    &.is-dragging {
+      .close-icon,
+      &:before {
+        visibility: hidden;
+      }
+
+      &::after {
+        background: darken(@tab-background-color, 6%);
+        border-color: transparent;
+        opacity: .5;
+      }
     }
 
     .title {
       position: relative;
-      bottom: @tab-border-size;
-      text-align: center;
-      margin: 0 @tab-padding;
+      // margin: 0 @tab-padding;
       text-overflow: clip;
-      // To use a mask and keep sub-pixel AA: Also add an opaque bg + HWA layer
-      -webkit-mask: linear-gradient( to left, hsla(0,0%,0%,0), hsla(0,0%,0%,1) 1em) no-repeat;
-      background-color: @tab-background-color;
       backface-visibility: hidden;
-    }
-
-    &:hover .title {
-      -webkit-mask-position: -@modified-icon-width 0;
-    }
-
-    &.active .title {
-      background-color: @tab-background-color-active;
     }
 
     .close-icon {
       top: 0;
       right: 0;
       z-index: 2;
-      padding: 0 @tab-padding/1.25;
+      padding: 0;
       height: @tab-height;
       line-height: @tab-height;
       text-align: center;
@@ -109,69 +103,7 @@
   .tab,
   .tab.active {
     flex: 1;
-  }
-
-  .tab,
-  .tab.active {
     padding-right: 0;
-
-    .title {
-      padding: 0;
-    }
-  }
-
-  .tab.active {
-    color: @tab-text-color-active;
-  }
-
-  .tab {
-    border-width: 0 0 0 1px;
-    border-image: linear-gradient(@tab-bar-background-color, @base-border-color 1em) 0 0 0 1 stretch;
-    &:first-child {
-      border-width: 0;
-    }
-  }
-
-  .tab.active,
-  .tab.active + .tab {
-    border-image: linear-gradient(transparent, transparent) 0 0 0 1 stretch;
-  }
-
-  .tab.modified {
-    .close-icon {
-      color: @text-color-info;
-      border: none;
-      border-bottom: @tab-border-size solid transparent;
-    }
-
-    &:not(:hover) .close-icon {
-      right: 0;
-      top: 0;
-      width: initial;
-      height: @tab-height;
-      border: none;
-      border-bottom: @tab-border-size solid transparent;
-      border-radius: 0;
-      transform: scale(1);
-
-      &::before {
-        content: "\f052";
-        display: inline-block;
-      }
-    }
-  }
-
-  .tab.is-dragging {
-    .close-icon,
-    &:before {
-      visibility: hidden;
-    }
-
-    &::after {
-      background: darken(@tab-background-color, 6%);
-      border-color: transparent;
-      opacity: .5;
-    }
   }
 
   .placeholder {
@@ -181,13 +113,10 @@
     pointer-events: none;
 
     &:after {
-      top: @tab-height/2;
+      top: @tab-height;
       width: 10px;
       height: 10px;
       margin: -5px 0 0 0;
-      border-radius: 0;
-      border: 5px solid;
-      border-color: transparent transparent transparent @base-accent-color;
       background: transparent;
     }
 
@@ -196,37 +125,15 @@
 
       &:after {
         margin-left: -10px;
-        border-color: transparent @base-accent-color transparent transparent;
       }
     }
-  }
-}
-
-.tab-bar .tab::before {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  z-index: 2;
-  top: @tab-border-size;
-  left: @tab-border-size;
-  bottom: @tab-border-size;
-  width: 2px;
-  border-top-left-radius: inherit;
-  border-radius: @component-border-radius 0;
-  background: @base-accent-color;
-  opacity: 0;
-  transform: scaleY(0);
-  transition: opacity .16s, transform .16s cubic-bezier(.80, 0, .90, .53);
-
-  .theme-one-light-ui & {
-    left: 0;
   }
 }
 
 atom-pane.active .tab.active:before {
   opacity: 1;
   transform: scaleY(1);
-  transition: opacity .16s, transform .32s cubic-bezier(0,.6,.2,1);
+  transition: opacity .16s, transform .32s cubic-bezier(0, .6, .2, 1);
 }
 
 .tab-bar .tab.active {
@@ -234,13 +141,5 @@ atom-pane.active .tab.active:before {
   &[data-type="MarkdownPreviewView"] {
     color: @tab-text-color-active;
     background-color: @tab-background-color-active;
-
-    &::after {
-      border-bottom-color: @tab-background-color-active;
-    }
-
-    .title {
-      background-color: @tab-background-color-active;
-    }
   }
 }

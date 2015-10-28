@@ -67,8 +67,8 @@
 @tab-bar-background-color         : @base-border-color;
 @tab-bar-border-color             : @background-color-highlight;
 @tab-background-color             : @tab-bar-background-color;
-@tab-background-color-active      : @base-background-color;
-@tab-border-color                 : @tab-bar-border-color;
+@tab-background-color-active      : transparent;
+@tab-border-color                 : @background-color-highlight;
 
 @tab-text-color                   : @text-color;
 @tab-text-color-active            : @text-color-highlight;
@@ -97,22 +97,22 @@
 
 // Sizes
 @font-size              : 12px;
-@input-font-size        : 12px;
-@line-height            : @font-size * 2;
+@input-font-size        : @font-size;
+@line-height            : @font-size*2;
 @disclosure-arrow-size  : 12px;
 
 @component-padding      : 8px;
 @component-icon-padding : 4px;
 @component-icon-size    : 16px; // needs to stay 16px to look sharpest
-@component-line-height  : 24px;
-@component-border-radius: 0px;
+@component-line-height  : @line-height;
+@component-border-radius: 2px;
 
-@tab-height             : 48px;
+@tab-height             : @line-height;
 
 @ui-size                : 1em;
 @ui-padding             : @ui-size;
 @ui-padding-pane        : @ui-size/2;
-@ui-padding-icon        : @ui-padding/3.3;
+@ui-padding-icon        : @ui-size/3.3;
 
 // Font
 @font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;

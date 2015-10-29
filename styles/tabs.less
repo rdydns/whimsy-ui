@@ -1,9 +1,7 @@
-@tab-padding: @ui-padding;
-
 .tab-bar {
   background: @tab-bar-background-color;
   border-radius: 0;
-  height: @tab-height*2;
+  height: @tab-height*1.5;
   overflow-x: auto;
   overflow-y: hidden;
 
@@ -13,12 +11,11 @@
 
   .tab {
     position: relative;
-    top: @tab-height/2;
+    top: @tab-height/4;
     height: @tab-height;
     font-size: inherit;
     color: @tab-text-color;
     line-height: @tab-height;
-    padding: 0;
     margin: 0 0 0 @tab-height/4;
     background-clip: content-box;
     border: 1px solid @tab-border-color;
@@ -65,7 +62,9 @@
 
     .title {
       position: relative;
-      // margin: 0 @tab-padding;
+      padding: 0;
+      margin: 0 @tab-height/4;
+      text-align: center;
       text-overflow: clip;
       backface-visibility: hidden;
     }
@@ -75,6 +74,7 @@
       right: 0;
       z-index: 2;
       padding: 0;
+      margin-right: @tab-height/4;
       height: @tab-height;
       line-height: @tab-height;
       text-align: center;
@@ -103,7 +103,11 @@
   .tab,
   .tab.active {
     flex: 1;
-    padding-right: 0;
+    padding: 0;
+
+    .title {
+      padding: 0;
+    }
   }
 
   .placeholder {
@@ -130,7 +134,7 @@
   }
 }
 
-atom-pane.active .tab.active:before {
+atom-pane.active .tab.active::before {
   opacity: 1;
   transform: scaleY(1);
   transition: opacity .16s, transform .32s cubic-bezier(0, .6, .2, 1);
@@ -141,5 +145,6 @@ atom-pane.active .tab.active:before {
   &[data-type="MarkdownPreviewView"] {
     color: @tab-text-color-active;
     background-color: @tab-background-color-active;
+    border-color: @tab-border-color-active;
   }
 }

@@ -2,7 +2,7 @@
   "name": "whimsy-ui",
   "theme": "ui",
   "main": "./lib/main",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Atom theme inspired by Carbonmade",
   "keywords": [
     "dark",

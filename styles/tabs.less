@@ -22,13 +22,14 @@
     border-radius: @component-border-radius;
 
     &.active {
-      background-color: @tab-background-color-active;
       color: @tab-text-color-active;
+      background-color: @tab-background-color-active;
+      border-color: @tab-border-color-active;
     }
 
     &.modified {
       .close-icon {
-        color: @text-color-info;
+        color: @text-color-warning;
         border: 0;
       }
 
@@ -138,13 +139,4 @@ atom-pane.active .tab.active::before {
   opacity: 1;
   transform: scaleY(1);
   transition: opacity .16s, transform .32s cubic-bezier(0, .6, .2, 1);
-}
-
-.tab-bar .tab.active {
-  &[data-type$="Editor"],
-  &[data-type="MarkdownPreviewView"] {
-    color: @tab-text-color-active;
-    background-color: @tab-background-color-active;
-    border-color: @tab-border-color-active;
-  }
 }

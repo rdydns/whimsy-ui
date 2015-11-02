@@ -60,7 +60,6 @@ code {
 
 .highlight-mixin {
   padding: 1px 4px;
-  font-weight: bold;
   text-shadow: none;
   border-radius: @component-border-radius;
   color: @text-color-highlight;
@@ -74,7 +73,7 @@ code {
 .highlight-color(@name, @color, @text-color) {
   .highlight-@{name} {
     .highlight-mixin();
-    background-color: fadeout(@color, 50%);
+    background-color: fadeout(@color, 20%);
   }
 }
 .highlight-color(info, @background-color-info, @text-color-info);

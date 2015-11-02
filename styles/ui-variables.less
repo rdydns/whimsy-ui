@@ -40,11 +40,11 @@
 @pane-item-background-color       : @base-background-color;
 @pane-item-border-color           : @base-border-color;
 
-@input-background-color           : @background-color-highlight;
+@input-background-color           : @base-background-color;
 @input-border-color               : @base-border-color;
 
-@input-background-color-focus     : fadein(@input-background-color, 6%);
-@input-selection-color            : darken(@background-color-selected, 6%);
+@input-background-color-focus     : fadein(@input-background-color, 12%);
+@input-selection-color            : darken(@background-color-selected, 12%);
 @input-selection-color-focus      : @background-color-selected;
 
 @tool-panel-background-color      : transparent;
@@ -57,7 +57,7 @@
 @panel-heading-border-color       : @base-border-color;
 
 @overlay-background-color         : @base-border-color;
-@overlay-border-color             : @text-color-subtle;
+@overlay-border-color             : @background-color-highlight;
 
 @button-background-color          : fadeOut(@base-accent-color, 40%);
 @button-background-color-hover    : @base-accent-color;

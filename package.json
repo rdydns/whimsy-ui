@@ -1,7 +1,6 @@
 {
   "name": "whimsy-ui",
   "theme": "ui",
-  "main": "./lib/main",
   "version": "1.0.4",
   "description": "Atom theme inspired by Carbonmade",
   "keywords": [
@@ -9,11 +8,9 @@
     "purple",
     "whimsy"
   ],
-  "activationCommands": {
-    "atom-workspace": "whimsy-ui:toggle"
-  },
-  "repository": "https://github.com/rdydns/whimsy-ui",
   "license": "MIT",
+  "repository": "https://github.com/rdydns/whimsy-ui",
+  "main": "lib/main",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },

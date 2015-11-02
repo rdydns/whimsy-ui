@@ -1,4 +1,7 @@
-# Settings
+
+# Theme settings
+# -----------------------
+
 root = document.documentElement
 
 module.exports =
@@ -37,7 +40,7 @@ module.exports =
     unsetLayoutMode()
 
 
-# Font Size
+# Font Size -----------------------
 setFontSize = (currentFontSize) ->
   if Number.isInteger(currentFontSize)
     root.style.fontSize = "#{currentFontSize}px"
@@ -48,7 +51,7 @@ unsetFontSize = ->
   root.style.fontSize = ''
 
 
-# Layout Mode
+# Layout Mode -----------------------
 setLayoutMode = (layoutMode) ->
   root.setAttribute('theme-whimsy-ui-layoutmode', layoutMode.toLowerCase())
 

@@ -2,4 +2,4 @@
 
 > [Atom](https://atom.io/) theme inspired by [Carbonmade](https://carbonmade.com/)
 
-![screen shot](/screenshot.png)
+![screen shot](https://raw.githubusercontent.com/rdydns/whimsy-ui/master/screenshot.png)

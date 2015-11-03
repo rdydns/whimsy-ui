@@ -1,15 +1,15 @@
 @import "syntax-variables";
 
 // Text
-@text-color          : @syntax-fg;
-@text-color-subtle   : @subtle;
+@text-color          : fadeOut(#fff, 20%);
+@text-color-subtle   : #b3b0d6;
 @text-color-highlight: #fff;
 @text-color-selected : @text-color-highlight;
 
-@text-color-info     : @blue;
-@text-color-success  : @green;
-@text-color-warning  : @orange;
-@text-color-error    : @red;
+@text-color-info     : #65aef7;
+@text-color-success  : #5ECA89;
+@text-color-warning  : #fcc22d;
+@text-color-error    : #ef6487;
 
 @text-color-faded    : fade(@text-color, 20%);
 
@@ -28,11 +28,11 @@
 @background-color-highlight: #3E3D4F;
 @background-color-selected : @background-color-highlight;
 
-@app-background-color      : @syntax-bg;
+@app-background-color      : #313040;
 
 // Base
 @base-background-color: @app-background-color;
-@base-border-color    : darken(@syntax-bg, 8%);
+@base-border-color    : darken(@base-background-color, 8%);
 
 @base-accent-color: @purple;
 

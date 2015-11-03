@@ -47,7 +47,7 @@
 @input-selection-color            : darken(@background-color-selected, 12%);
 @input-selection-color-focus      : @background-color-selected;
 
-@tool-panel-background-color      : transparent;
+@tool-panel-background-color      : @background-color-highlight;
 @tool-panel-border-color          : @base-border-color;
 
 @inset-panel-background-color     : transparent;
@@ -74,7 +74,7 @@
 @tab-text-color-active            : @text-color-highlight;
 @tab-border-color-active          : @base-accent-color;
 
-@tree-view-background-color       : @background-color-highlight;
+@tree-view-background-color       : @tool-panel-background-color;
 @tree-view-border-color           : @tree-view-background-color;
 
 @scrollbar-color                  : @base-accent-color;

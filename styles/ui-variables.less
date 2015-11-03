@@ -32,7 +32,7 @@
 
 // Base
 @base-background-color: @app-background-color;
-@base-border-color    : darken(@syntax-bg, 12%);
+@base-border-color    : darken(@syntax-bg, 8%);
 
 @base-accent-color: @purple;
 
@@ -43,15 +43,15 @@
 @input-background-color           : @base-background-color;
 @input-border-color               : @base-border-color;
 
-@input-background-color-focus     : fadein(@input-background-color, 12%);
-@input-selection-color            : darken(@background-color-selected, 12%);
-@input-selection-color-focus      : @background-color-selected;
+@input-background-color-focus     : @input-background-color;
+@input-selection-color            : fadeOut(@base-accent-color, 40%);
+@input-selection-color-focus      : fadeOut(@base-accent-color, 40%);
 
 @tool-panel-background-color      : @background-color-highlight;
 @tool-panel-border-color          : @base-border-color;
 
 @inset-panel-background-color     : transparent;
-@inset-panel-border-color         : fadeout(@base-border-color, 15%);
+@inset-panel-border-color         : fadeOut(@base-border-color, 16%);
 
 @panel-heading-background-color   : @base-background-color;
 @panel-heading-border-color       : @base-border-color;
@@ -64,7 +64,7 @@
 @button-background-color-selected : @button-background-color-hover;
 @button-border-color              : @base-background-color;
 
-@tab-bar-background-color         : @base-border-color;
+@tab-bar-background-color         : @background-color-highlight;
 @tab-bar-border-color             : @background-color-highlight;
 @tab-background-color             : @tab-bar-background-color;
 @tab-background-color-active      : fadeOut(@base-accent-color, 80%);

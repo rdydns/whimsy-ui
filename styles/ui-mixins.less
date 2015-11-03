@@ -13,7 +13,7 @@
 
 .text(highlight) {
   font-weight: normal;
-  color: @text-color-highlight;
+  color: @text-color;
 }
 
 .text(selected) {
@@ -38,6 +38,5 @@
 
 .focus() {
   outline: none;
-  border-color: @base-accent-color;
-  box-shadow: 0 0 0 1px @base-accent-color;
+  border-color: @text-color-highlight;
 }

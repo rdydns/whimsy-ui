@@ -9,7 +9,7 @@
     "whimsy"
   ],
   "license": "MIT",
-  "repository": "https://github.com/rdydns/whimsy-ui",
+  "repository": "rod/whimsy-ui",
   "main": "lib/main",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

@@ -1,4 +1,4 @@
-# whimsy-ui [![build status](https://img.shields.io/travis/rdydns/whimsy-ui.svg)](https://travis-ci.org/rdydns/whimsy-ui)
+# whimsy-ui [![Build Status](https://travis-ci.org/rod/whimsy-ui.svg?branch=master)](https://travis-ci.org/rod/whimsy-ui)
 
 > [Atom](https://atom.io/) theme inspired by [Carbonmade](https://carbonmade.com/)
 
